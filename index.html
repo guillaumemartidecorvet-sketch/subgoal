@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paliers de Kamas</title>
+    <title>Paliers de Subs</title>
+
     <style>
         * {
             margin: 0;
@@ -16,6 +17,7 @@
             height: 920px;
             overflow: hidden;
             position: relative;
+            font-family: Arial, sans-serif;
         }
 
         #background-video {
@@ -88,23 +90,27 @@
             text-align: center;
             padding: 20px;
             transform: rotateY(180deg);
-            border: 3px solid #000000;
+            border: 3px solid #000;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            flex-direction: column;
         }
 
-        .card-back .kama-text {
-            font-size: 24px;
+        .kama-text {
+            font-size: 26px;
             margin-bottom: 10px;
         }
 
-        .card-back .exo-text {
+        .reward-text {
             font-size: 20px;
             color: #ffd700;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-top: 5px;
         }
     </style>
 </head>
+
 <body>
+
     <video id="background-video" autoplay loop muted>
         <source src="public/feelgood.mp4" type="video/mp4">
     </video>
@@ -113,49 +119,69 @@
 
     <script>
         const container = document.getElementById('cards-container');
-        
-        // Générer les 40 boutons (de 5 à 200, par pas de 5)
+
+        // Génération des paliers (5 à 200)
         for (let i = 5; i <= 200; i += 5) {
+
             const cardWrapper = document.createElement('div');
             cardWrapper.className = 'card-wrapper';
-            
+
             const card = document.createElement('div');
             card.className = 'card';
-            
+
             const front = document.createElement('div');
             front.className = 'card-front';
+
             const img = document.createElement('img');
             img.src = `public/palier${i}.png`;
             img.alt = `Palier ${i}`;
             front.appendChild(img);
-            
+
             const back = document.createElement('div');
             back.className = 'card-back';
-            
-            const kamaText = document.createElement('div');
-            kamaText.className = 'kama-text';
-            kamaText.textContent = `${i}M de kamas`;
-            back.appendChild(kamaText);
-            
-            // Ajouter "Exo PA" pour les multiples de 10
-            if (i % 10 === 0) {
-                const exoText = document.createElement('div');
-                exoText.className = 'exo-text';
-                exoText.textContent = '+ Exo PA';
-                back.appendChild(exoText);
+
+            const subsText = document.createElement('div');
+            subsText.className = 'kama-text';
+            subsText.textContent = `${i} subs`;
+            back.appendChild(subsText);
+
+            /* ===== RÉCOMPENSES ===== */
+
+            // Exo PA tous les 15 subs
+            if (i % 15 === 0) {
+                const reward = document.createElement('div');
+                reward.className = 'reward-text';
+                reward.textContent = '+ Exo PA';
+                back.appendChild(reward);
             }
-            
+
+            // Palier 50
+            if (i === 50) {
+                const reward = document.createElement('div');
+                reward.className = 'reward-text';
+                reward.textContent = '🎁 Tutu +20';
+                back.appendChild(reward);
+            }
+
+            // Palier 100
+            if (i === 100) {
+                const reward = document.createElement('div');
+                reward.className = 'reward-text';
+                reward.textContent = '🎁 Ébène +15';
+                back.appendChild(reward);
+            }
+
             card.appendChild(front);
             card.appendChild(back);
             cardWrapper.appendChild(card);
             container.appendChild(cardWrapper);
-            
-            // Ajouter l'événement de clic
-            card.addEventListener('click', function() {
-                this.classList.toggle('flipped');
+
+            // Animation flip
+            card.addEventListener('click', () => {
+                card.classList.toggle('flipped');
             });
         }
     </script>
-</body>
 
+</body>
 </html>
