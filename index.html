@@ -14,7 +14,7 @@
 
         body {
             width: 1920px;
-            height: 920px;
+            height: 1080px;
             overflow: hidden;
             position: relative;
             font-family: Arial, sans-serif;
@@ -37,33 +37,35 @@
             left: 50%;
             transform: translateX(-50%);
             z-index: 5;
+            text-align: center;
         }
 
         .title img {
             display: block;
-            max-width: 100%;
+            max-width: 600px;
             height: auto;
         }
 
-        /* ===== BLOC SUBS (⬇️ +500px) ===== */
+        /* ===== BLOC SUBS ===== */
         .container {
             position: absolute;
-            top: 500px;
+            top: 200px;
             left: 50%;
             transform: translateX(-50%);
-            width: 1760px;          /* ⬅️ +20px par case (8 colonnes) */
-            height: 650px;          /* ⬅️ +30px par case (5 lignes) */
+            width: 1920px;
+            height: 800px;
             display: grid;
-            grid-template-columns: repeat(8, 1fr);
-            grid-template-rows: repeat(5, 1fr);
-            gap: 20px;              /* ⬅️ plus d’espace */
-            padding: 10px;
+            grid-template-columns: repeat(8, 220px);
+            grid-template-rows: repeat(5, 140px);
+            gap: 20px;
+            padding: 20px;
+            justify-content: center;
         }
 
         .card-wrapper {
             perspective: 1000px;
-            width: 100%;
-            height: 100%;
+            width: 220px;
+            height: 140px;
         }
 
         .card {
