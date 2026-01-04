@@ -49,7 +49,7 @@
         /* ===== BLOC SUBS ===== */
         .container {
             position: absolute;
-            top: 500px;
+            top: 800px;
             left: 50%;
             transform: translateX(-50%);
             width: 1920px;
@@ -135,12 +135,12 @@
 <body>
 
     <video id="background-video" autoplay loop muted>
-        <source src="public/feelgood.mp4" type="video/mp4">
+        <source src="./public/feelgood.mp4" type="video/mp4">
     </video>
 
     <!-- TITRE -->
     <div class="title">
-        <img src="public/TITRE.png" alt="Titre">
+        <img src="./public/TITRE.png" alt="Titre" onerror="console.error('Image non trouvée:', this.src)">
     </div>
 
     <!-- CARTES -->
@@ -161,7 +161,7 @@
             front.className = 'card-front';
 
             const img = document.createElement('img');
-            img.src = `public/palier${i}.png`;
+            img.src = `./public/palier${i}.png`;
             img.alt = `Palier ${i}`;
             front.appendChild(img);
 
