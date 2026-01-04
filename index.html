@@ -120,8 +120,8 @@
     <script>
         const container = document.getElementById('cards-container');
 
-        // Génération des paliers (5 à 200)
-        for (let i = 5; i <= 200; i += 5) {
+        // Génération des paliers (5 à 100)
+        for (let i = 5; i <= 100; i += 5) {
 
             const cardWrapper = document.createElement('div');
             cardWrapper.className = 'card-wrapper';
@@ -176,7 +176,7 @@
             cardWrapper.appendChild(card);
             container.appendChild(cardWrapper);
 
-            // Animation flip
+            // Flip au clic
             card.addEventListener('click', () => {
                 card.classList.toggle('flipped');
             });
