@@ -31,18 +31,18 @@
         }
 
         .container {
-            position: absolute;
-            top: calc(50% + 500px); /* ⬇️ DESCENTE DE 500px */
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 1600px;
-            height: 500px;
-            display: grid;
-            grid-template-columns: repeat(8, 1fr);
-            grid-template-rows: repeat(5, 1fr);
-            gap: 10px;
-            padding: 10px;
-            overflow-y: auto;
+        position: absolute;
+        top: 500px;              /* ⬇️ déplacement réel */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1600px;
+        height: 500px;
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        gap: 10px;
+        padding: 10px;
+        overflow-y: auto;
         }
 
         .card-wrapper {
@@ -190,3 +190,4 @@
 
 </body>
 </html>
+
