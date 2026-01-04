@@ -30,19 +30,20 @@
             z-index: -1;
         }
 
+        /* ⬇️ BLOC DESCENDU DE 500 PIXELS */
         .container {
-        position: absolute;
-        top: 500px;              /* ⬇️ déplacement réel */
-        left: 50%;
-        transform: translateX(-50%);
-        width: 1600px;
-        height: 500px;
-        display: grid;
-        grid-template-columns: repeat(8, 1fr);
-        grid-template-rows: repeat(5, 1fr);
-        gap: 10px;
-        padding: 10px;
-        overflow-y: auto;
+            position: absolute;
+            top: 500px;              /* ⬅️ DÉCALAGE RÉEL */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1600px;
+            height: 500px;
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 10px;
+            padding: 10px;
+            overflow-y: auto;
         }
 
         .card-wrapper {
@@ -95,8 +96,8 @@
 
         .subs-text {
             font-size: 26px;
-            margin-bottom: 6px;
             font-weight: bold;
+            margin-bottom: 6px;
         }
 
         .kama-text {
@@ -109,7 +110,7 @@
         .reward-text {
             font-size: 20px;
             color: #ffd700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             margin-top: 4px;
         }
     </style>
@@ -126,7 +127,7 @@
     <script>
         const container = document.getElementById('cards-container');
 
-        // Génération des paliers (5 à 100 subs)
+        // 🔁 PALIERS DE 5 À 100 SUBS
         for (let i = 5; i <= 100; i += 5) {
 
             const cardWrapper = document.createElement('div');
@@ -135,6 +136,7 @@
             const card = document.createElement('div');
             card.className = 'card';
 
+            /* ===== FACE AVANT ===== */
             const front = document.createElement('div');
             front.className = 'card-front';
 
@@ -143,19 +145,23 @@
             img.alt = `Palier ${i}`;
             front.appendChild(img);
 
+            /* ===== FACE ARRIÈRE ===== */
             const back = document.createElement('div');
             back.className = 'card-back';
 
+            // Subs
             const subsText = document.createElement('div');
             subsText.className = 'subs-text';
             subsText.textContent = `${i} subs`;
             back.appendChild(subsText);
 
+            // 💰 TOUJOURS +5M DE KAMAS
             const kamasText = document.createElement('div');
             kamasText.className = 'kama-text';
             kamasText.textContent = '+ 5M de kamas';
             back.appendChild(kamasText);
 
+            // 🎯 Exo PA tous les 15 subs
             if (i % 15 === 0) {
                 const reward = document.createElement('div');
                 reward.className = 'reward-text';
@@ -163,6 +169,7 @@
                 back.appendChild(reward);
             }
 
+            // 🎁 Palier 50
             if (i === 50) {
                 const reward = document.createElement('div');
                 reward.className = 'reward-text';
@@ -170,6 +177,7 @@
                 back.appendChild(reward);
             }
 
+            // 🎁 Palier 100
             if (i === 100) {
                 const reward = document.createElement('div');
                 reward.className = 'reward-text';
@@ -182,6 +190,7 @@
             cardWrapper.appendChild(card);
             container.appendChild(cardWrapper);
 
+            // Flip au clic
             card.addEventListener('click', () => {
                 card.classList.toggle('flipped');
             });
@@ -190,4 +199,3 @@
 
 </body>
 </html>
-
